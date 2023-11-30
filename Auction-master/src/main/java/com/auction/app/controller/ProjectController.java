@@ -166,9 +166,24 @@ public class ProjectController {
 		}
 		
 	}
-	
-	@RequestMapping(value = "/messageApp")
-	public String messageApp() {
-		return "Messaging";
+	@GetMapping("/AboutUs.html")
+	public String getAboutUs()
+	{
+		return "AboutUs1";
+	}
+	@GetMapping("/UserProfile.html")
+	public String getUserProfile()
+	{
+		return "UserProfile1";
+	}
+	@GetMapping("message.jsp")
+	public String getMessagePage()
+	{
+		return "chat.html";
+	}
+	@GetMapping("Search.jsp")
+	public String getSearchPage()
+	{
+		return "Search.html";
 	}
 }

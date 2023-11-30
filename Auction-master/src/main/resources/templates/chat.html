@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Green Chat</title>
+  <style>
+    /* Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .chat-container {
+      width: 300px;
+      margin: 20px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #fff;
+    }
+
+    .chat-header {
+      padding: 10px;
+      background-color: #2ecc71;
+      color: #fff;
+      text-align: center;
+    }
+
+    .chat-messages {
+      height: 300px;
+      overflow-y: scroll;
+      padding: 10px;
+    }
+
+    .message {
+      margin-bottom: 10px;
+    }
+
+    .user-message {
+      background-color: #d5f5e3;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .bot-message {
+      background-color: #f0f0f0;
+      padding: 8px;
+      border-radius: 8px;
+    }
+
+    .chat-input {
+      width: calc(100% - 20px);
+      padding: 8px;
+      margin: 0 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .send-button {
+      width: 80px;
+      padding: 8px;
+      margin: 10px;
+      background-color: #2ecc71;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      Green Chat
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <!-- Messages will appear here -->
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type a message...">
+      <button class="send-button" onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const userInput = document.getElementById('userInput');
+      const message = userInput.value;
+
+      if (message.trim() !== '') {
+        const chatMessages = document.getElementById('chatMessages');
+        const userDiv = document.createElement('div');
+        userDiv.className = 'message user-message';
+        userDiv.textContent = message;
+        chatMessages.appendChild(userDiv);
+
+        // Simulating bot response (you can replace this with actual logic)
+        setTimeout(() => {
+          const botDiv = document.createElement('div');
+          botDiv.className = 'message bot-message';
+          botDiv.textContent = 'Bot: Hi there! This is a bot response.';
+          chatMessages.appendChild(botDiv);
+          chatMessages.scrollTop = chatMessages.scrollHeight; // Scroll to bottom
+        }, 500);
+      }
+
+      userInput.value = ''; // Clear input field after sending message
+    }
+  </script>
+</body>
+</html>

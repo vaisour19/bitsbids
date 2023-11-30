@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Search Interface</title>
+  <style>
+    /* Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .search-container {
+      width: 300px;
+      margin: 20px auto;
+    }
+
+    .search-input {
+      width: calc(100% - 40px);
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-button {
+      width: 40px;
+      padding: 10px;
+      border: none;
+      background-color: #2ecc71;
+      color: #fff;
+      border-radius: 0 5px 5px 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search-results {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: none;
+    }
+
+    .result-item {
+      padding: 8px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .result-item:last-child {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search...">
+    <button class="search-button" onclick="performSearch()">🔍</button>
+    <div class="search-results" id="searchResults">
+      <!-- Search results will appear here -->
+    </div>
+  </div>
+
+  <script>
+    function performSearch() {
+      const searchInput = document.querySelector('.search-input');
+      const searchTerm = searchInput.value.trim().toLowerCase();
+      const searchResults = document.getElementById('searchResults');
+
+      // For demo, showing some hardcoded results
+      const data = [
+        'Green Apple',
+        'Lime Green',
+        'Forest Green',
+        'Green Tea',
+        'Greenhouse',
+        'Greenfield'
+      ];
+
+      // Clear previous results
+      searchResults.innerHTML = '';
+
+      // Filter and display results
+      const filteredResults = data.filter(item =>
+        item.toLowerCase().includes(searchTerm)
+      );
+
+      if (filteredResults.length > 0) {
+        filteredResults.forEach(result => {
+          const resultItem = document.createElement('div');
+          resultItem.classList.add('result-item');
+          resultItem.textContent = result;
+          searchResults.appendChild(resultItem);
+        });
+        searchResults.style.display = 'block';
+      } else {
+        searchResults.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>
