@@ -1,4 +1,5 @@
-# Auction.com
+# BITSBIDS.com
+
 It is an javaEE web application
 Technologies used in it are :
 
