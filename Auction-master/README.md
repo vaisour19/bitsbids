@@ -1,11 +1,5 @@
 # Auction.com
 It is an javaEE web application
-
-Application is avaliable on : https://auction-pk.herokuapp.com
-
-This application is in still in developing phase it might show some unusal behaviour
-or have some bugs.
-
 Technologies used in it are :
 
 BACKEND
